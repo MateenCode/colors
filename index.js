@@ -1,6 +1,4 @@
-const createCsvWriter = require("csv-writer").createObjectCsvWriter({
-  append: true
-});
+const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 const splashy = require("splashy")();
 
 const imgs = require("./data/input.json");
@@ -31,14 +29,9 @@ imgs.forEach(img => {
         color3: color3
       }
     ];
+
     csvWriter.writeRecords(records).then(() => {
       console.log("...Done");
     });
   })();
-});
-
-process.on("unhandledRejection", (reason, promise) => {
-  console.log("Unhandled Rejection at:", reason.stack || reason);
-  // Recommended: send the information to sentry.io
-  // or whatever crash reporting service you use
 });
