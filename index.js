@@ -1,6 +1,8 @@
-const createCsvWriter = require("csv-writer").createObjectCsvWriter;
+const createCsvWriter = require("csv-writer").createObjectCsvWriter({
+  append: true
+});
 const splashy = require("splashy")();
-
+const fs = require("fs");
 const imgs = require("./data/input.json");
 
 imgs.forEach(img => {
